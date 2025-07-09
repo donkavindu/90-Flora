@@ -9,9 +9,9 @@ import portfolioImage7 from "../public/images/port7.png"
 import portfolioImage8 from "../public/images/port8.png" 
 import portfolioImage9 from "../public/images/port9.png" 
 
-const Portfolio = () => {
+const Portfolio = ({id}) => {
   return (
-    <div className="w-full h-[180vh]">
+    <div id={id} className="w-full h-[180vh]">
       <div className="grid h-full grid-cols-4 grid-rows-4">
         {/* First column */}
         <div className="overflow-hidden bg-blue-200 border-white group border-3">

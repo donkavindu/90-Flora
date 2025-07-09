@@ -11,14 +11,14 @@ import Services from "@/components/Services";
 export default function Home() {
   return (
     <div>
-      <Hero/>
-      <About/>
+      <Hero id="#"/>
+      <About id="about"/>
       <Feature/>
       <Products/>
-      <Services/>
-      <Portfolio/>
+      <Services id="services"/>
+      <Portfolio id="portfolio"/>
       <ContactDetails/>
-      <ContactUs/>
+      <ContactUs id="contact"/>
       <Footer/>
     </div>
   );

@@ -4,7 +4,7 @@ import Image from "next/image";
 import heroImage from "../public/images/heroimg.png";
 import Navbar from "./Navbar";
 
-const Hero = () => {
+const Hero = ({id}) => {
   const containerRef = useRef(null);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -52,7 +52,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div>
+    <div id={id}>
       <div className="h-[8vh] w-full navtexture fixed top-0 z-20 border-b-[2px] border-white">
         <Navbar/>
       </div>

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import QR from "../public/images/qr.png";
 import StarWhite from "../public/images/starWhite.png";
-const ContactUs = () => {
+const ContactUs = ({id}) => {
   return (
-    <div className="w-full py-20">
+    <div id={id} className="w-full py-20">
       <div className="w-[75%] h-full mx-auto flex gap-12">
         <div className="flex-[6]">
           <div className="w-[85%]">

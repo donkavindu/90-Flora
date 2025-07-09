@@ -1,6 +1,6 @@
-const Services = () => {
+const Services = ({id}) => {
   return (
-    <div className="relative w-full py-20 servicetexture">
+    <div id={id} className="relative w-full py-20 servicetexture">
       
       <div className="w-[75%] h-full  mx-auto">
         <div className="text-center text-[#0D281A]">

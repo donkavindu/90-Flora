@@ -1,6 +1,6 @@
-const About = () => {
+const About = ({id}) => {
   return (
-    <div className="h-[60vh] bg-white w-full">
+    <div id={id} className="h-[60vh] bg-white w-full">
       <div className="w-[75%] flex mx-auto items-center h-full gap-24">
         <div className="flex-[1]" style={{ textAlign: "justify" }}>
           At 90 Flora, we believe that every event is a unique story waiting to
