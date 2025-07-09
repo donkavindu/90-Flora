@@ -1,6 +1,6 @@
 import Image from "next/image";
 import QR from "../public/images/qr.png";
-// import Form from "./Form";
+import Form from "./Form";
 const ContactUs = ({id}) => {
   return (
     <div id={id} className="w-full py-20">
@@ -19,7 +19,7 @@ const ContactUs = ({id}) => {
             </p>
           </div>
           <div className="w-[85%] mt-7">
-            {/* <Form/> */}
+            <Form/>
           </div>
         </div>
         <div className="flex-[4] bg-[#E7EAE8] py-10 px-5 flex flex-col gap-5 items-center text-center">
