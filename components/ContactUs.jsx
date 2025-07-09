@@ -1,6 +1,6 @@
 import Image from "next/image";
 import QR from "../public/images/qr.png";
-import StarWhite from "../public/images/starWhite.png";
+// import Form from "./Form";
 const ContactUs = ({id}) => {
   return (
     <div id={id} className="w-full py-20">
@@ -18,37 +18,8 @@ const ContactUs = ({id}) => {
               book a personal appointment with our design team.
             </p>
           </div>
-          <div className="w-[85%] mt-7 flex flex-col gap-4">
-            <input
-              type="text"
-              placeholder="First Name"
-              className="border-1 border-[#0D281A] rounded-lg px-5 py-3 w-full"
-            />
-            <input
-              type="text"
-              placeholder="First Name"
-              className="border-1 border-[#0D281A] rounded-lg px-5 py-3 w-full"
-            />
-            <input
-              type="text"
-              placeholder="First Name"
-              className="border-1 border-[#0D281A] rounded-lg px-5 py-3 w-full"
-            />
-            <input
-              type="text"
-              placeholder="First Name"
-              className="border-1 border-[#0D281A] rounded-lg px-5 py-3 w-full"
-            />
-            <input
-              type="text"
-              placeholder="First Name"
-              className="border-1 border-[#0D281A] rounded-lg px-5 py-3 w-full"
-            />
-            <button className="w-[175px] flex py-2 rounded-lg items-center justify-center gap-2 bg-[#3D5348] text-white">
-              <Image src={StarWhite} alt="start" width={15} height={15} />
-              <p>Submit Now</p>
-              <Image src={StarWhite} alt="start" width={15} height={15} />
-            </button>
+          <div className="w-[85%] mt-7">
+            {/* <Form/> */}
           </div>
         </div>
         <div className="flex-[4] bg-[#E7EAE8] py-10 px-5 flex flex-col gap-5 items-center text-center">
