@@ -3,3 +3,75 @@
 :root {
   --background: #ffffff;
 }
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("/fonts/CeraPro-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("/fonts/CeraPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("/fonts/CeraPro-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NewYork";
+  src: url("/fonts/NewYork.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Cera Pro", sans-serif;
+}
+
+.ceraPro {
+  font-family: "Cera Pro", sans-serif;
+}
+
+.newYork {
+  font-family: "NewYork", sans-serif;
+}
+
+.navtexture {
+  background-image: url("../public/images/NavbarTexture.png");
+  background-size: cover;
+}
+.servicetexture {
+  background-image: url("../public/images/ServiceTexture.png");
+  background-size: cover;
+}
+.footertexture {
+  background-image: url("../public/images/FooterTexture.png");
+  background-size: cover;
+}
+
+.navtexture {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.navtexture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../public/images/NavbarTexture.png");
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+  opacity: 0.25;
+}
