@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import Banner from "../public/images/BannerArt.jpg";
+import Banner from "../public/images/BannerArt.webp";
 import Star from "../public/images/star.png";
 
 const ContactDetails = () => {

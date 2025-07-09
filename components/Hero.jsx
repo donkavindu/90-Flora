@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import heroImage from "../public/images/heroimg.png";
+import heroImage from "../public/images/heroimg.webp";
 import Navbar from "./Navbar";
 
 const Hero = ({id}) => {
