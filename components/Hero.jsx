@@ -58,7 +58,7 @@ const Hero = ({id}) => {
       </div>
       <div 
         ref={containerRef}
-        className="h-[100vh] w-full bg-amber-800 relative overflow-hidden"
+        className="h-[100vh] w-full relative overflow-hidden"
       >
         {/* Grayscale background image */}
         <Image
@@ -71,7 +71,7 @@ const Hero = ({id}) => {
             filter: "grayscale(100%)",
             transition: "filter 0.5s ease-out"
           }}
-          quality={100}
+          // quality={100}
         />
         <div className="absolute top-32 left-[50%] z-10 newYork -translate-x-[50%] flex flex-col items-center">
           <p className="text-[18px] tracking-[3px] text-white">CINEMATIC DREAM PLANNER</p>
@@ -131,7 +131,7 @@ const Hero = ({id}) => {
                 objectFit: "cover",
                 objectPosition: "top",
               }}
-              quality={100}
+              // quality={100}
             />
           </div>
         </div>

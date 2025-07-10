@@ -43,11 +43,6 @@ body {
 .newYork {
   font-family: "NewYork", sans-serif;
 }
-
-.navtexture {
-  background-image: url("../public/images/NavbarTexture.webp");
-  background-size: cover;
-}
 .servicetexture {
   background-image: url("../public/images/ServiceTexture.webp");
   background-size: cover;
@@ -58,20 +53,8 @@ body {
 }
 
 .navtexture {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.navtexture::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-image: url("../public/images/NavbarTexture.webp");
   background-size: cover;
-  filter: blur(5px);
-  z-index: -1;
-  opacity: 0.25;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
