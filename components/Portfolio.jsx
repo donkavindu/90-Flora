@@ -1,13 +1,13 @@
 import Image from "next/image"
-import portfolioImage1 from "../public/images/port1.png" 
-import portfolioImage2 from "../public/images/port2.png" 
-import portfolioImage3 from "../public/images/port3.png" 
-import portfolioImage4 from "../public/images/port4.png" 
-import portfolioImage5 from "../public/images/port5.png" 
-import portfolioImage6 from "../public/images/port6.png" 
-import portfolioImage7 from "../public/images/port7.png" 
-import portfolioImage8 from "../public/images/port8.png" 
-import portfolioImage9 from "../public/images/port9.png" 
+import portfolioImage1 from "../public/images/port1.webp" 
+import portfolioImage2 from "../public/images/port2.webp" 
+import portfolioImage3 from "../public/images/port3.webp" 
+import portfolioImage4 from "../public/images/port4.webp" 
+import portfolioImage5 from "../public/images/port5.webp" 
+import portfolioImage6 from "../public/images/port6.webp" 
+import portfolioImage7 from "../public/images/port7.webp" 
+import portfolioImage8 from "../public/images/port8.webp" 
+import portfolioImage9 from "../public/images/port9.webp" 
 
 const Portfolio = ({id}) => {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import QR from "../public/images/qr.png";
+import QR from "../public/images/qr.webp";
 import Form from "./Form";
 const ContactUs = ({id}) => {
   return (

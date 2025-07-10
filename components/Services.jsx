@@ -1,8 +1,22 @@
+import Image from "next/image";
+import floraimg from "../public/images/90FLORA.svg"
+
 const Services = ({id}) => {
   return (
-    <div id={id} className="relative w-full py-20 servicetexture">
+    <div id={id} className="relative w-full py-20 overflow-hidden servicetexture">
+      {/* Container for absolute positioned image */}
+      <div className="absolute top-0 w-full h-full left-[85%]">
+        <div className="relative w-full h-full">
+          <Image 
+            src={floraimg} 
+            alt="floraimge" 
+            className="object-contain w-auto h-full"
+            style={{ maxHeight: "1000px" }}
+          />
+        </div>
+      </div>
       
-      <div className="w-[75%] h-full  mx-auto">
+      <div className="relative w-[75%] h-full mx-auto z-10">
         <div className="text-center text-[#0D281A]">
           <h4 className="text-[24px]">
             Crafted with <span className="font-bold">Care</span>. Designed with{" "}
@@ -11,7 +25,7 @@ const Services = ({id}) => {
           </h4>
           <p className="text-[16px]">
             From the first meeting to the final petal, 90Flora ensures your
-            floral dream becomes a flawless reality. Here’s how we do it
+            floral dream becomes a flawless reality. Here's how we do it
           </p>
         </div>
         <div>
