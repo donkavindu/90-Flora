@@ -16,14 +16,14 @@ const Products = () => {
     <div className="w-full p-30">
       <div className="w-[75%] h-full flex flex-col items-center justify-center mx-auto">
         {/* First row with 4 products */}
-        <div className="flex mb-12 gap-15">
+        <div className="flex gap-5 mb-10">
           {products.slice(0, 4).map((product) => (
             <ProductCard key={product.id} imageSrc={product.image} title={product.title} />
           ))}
         </div>
         
         {/* Second row with 4 products */}
-        <div className="flex gap-15">
+        <div className="flex gap-5">
           {products.slice(4, 8).map((product) => (
             <ProductCard key={product.id} imageSrc={product.image} title={product.title} />
           ))}
