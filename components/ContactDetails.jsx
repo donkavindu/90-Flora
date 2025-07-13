@@ -46,7 +46,7 @@ const ContactDetails = () => {
         {/* Contact Section with Step Animations */}
         <div className="w-full h-[60vh] servicetexture mt-auto">
           <motion.div 
-            className="w-[70%] mx-auto mt-48"
+            className="w-[75%] flex justify-between flex-col mt-48 mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

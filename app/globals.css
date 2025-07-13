@@ -58,3 +58,9 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
+.portfoliopage{
+    background-image: url(../public/images//BannerArt.webp);
+    background-size: cover;
+    background-position: center;
+}
