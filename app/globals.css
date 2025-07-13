@@ -52,9 +52,23 @@ body {
   background-size: cover;
 }
 
-.navtexture {
+/* .navtexture {
   background-image: url("../public/images/NavBarTexture.png");
   background-size: cover;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+} */
+
+.navtexture {
+  background-image: url("../public/images/NavBarTexture.png");
+  background-size: cover;
+  /* Add a fallback background color */
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Improved backdrop filter with fallbacks */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* For Firefox */
+  @supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }
