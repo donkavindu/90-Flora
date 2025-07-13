@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
@@ -14,21 +16,62 @@ const Products = () => {
 
   return (
     <div className="w-full p-30">
-      <div className="w-[75%] h-full flex flex-col items-center justify-center mx-auto">
+      <motion.div 
+        className="w-[75%] h-full flex flex-col items-center justify-center mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         {/* First row with 4 products */}
-        <div className="flex mb-12 gap-15">
-          {products.slice(0, 4).map((product) => (
-            <ProductCard key={product.id} imageSrc={product.image} title={product.title} />
+        <motion.div 
+          className="flex mb-12 gap-15"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ 
+            staggerChildren: 0.15,
+            when: "beforeChildren"
+          }}
+        >
+          {products.slice(0, 4).map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <ProductCard imageSrc={product.image} title={product.title} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         {/* Second row with 4 products */}
-        <div className="flex gap-15">
-          {products.slice(4, 8).map((product) => (
-            <ProductCard key={product.id} imageSrc={product.image} title={product.title} />
+        <motion.div 
+          className="flex gap-15"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ 
+            staggerChildren: 0.15,
+            when: "beforeChildren",
+            delay: 0.4
+          }}
+        >
+          {products.slice(4, 8).map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+            >
+              <ProductCard imageSrc={product.image} title={product.title} />
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
