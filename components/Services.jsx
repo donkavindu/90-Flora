@@ -1,10 +1,46 @@
-import Image from "next/image";
-import floraimg from "../public/images/90FLORA.svg"
+"use client";
 
-const Services = ({id}) => {
+import { motion } from "framer-motion";
+import Image from "next/image";
+import floraimg from "../public/images/90FLORA.svg";
+
+const Services = ({ id }) => {
+  const services = [
+    {
+      number: "01",
+      title: "Consultation & Concept",
+      description: "We begin with understanding your theme, colors, culture, and venue. Your vision becomes our inspiration."
+    },
+    {
+      number: "02",
+      title: "Mood-boarding & Styling",
+      description: "Our designers create moodboards and floral palettes tailored to your story, tone, and style."
+    },
+    {
+      number: "03",
+      title: "Custom Floral Planning",
+      description: "From settee backs to aisle petals, every floral component is thoughtfully mapped and priced transparently."
+    },
+    {
+      number: "04",
+      title: "Flower Sourcing",
+      description: "We handpick blooms from trusted local & global growers to ensure premium freshness and sustainability."
+    },
+    {
+      number: "05",
+      title: "Assembly & Installation",
+      description: "Our expert team brings the vision to life on-site—on time, with utmost care and precision."
+    },
+    {
+      number: "06",
+      title: "On-Day Floral Management",
+      description: "We stay with you to manage floral changes, bouquet touch-ups, and maintain freshness throughout the event."
+    }
+  ];
+
   return (
     <div id={id} className="relative w-full py-20 overflow-hidden servicetexture">
-      {/* Container for absolute positioned image */}
+      {/* Background image */}
       <div className="absolute top-0 w-full h-full left-[85%]">
         <div className="relative w-full h-full">
           <Image 
@@ -29,84 +65,29 @@ const Services = ({id}) => {
           </p>
         </div>
         <div>
-          {/* service 01 */}
-          <div className="flex items-center gap-5 mt-10">
-            <div className="newYork text-[84px] text-[#909C96] flex-[1]">
-              01
-            </div>
-            <div className="text-[#0D281A] flex-[7]">
-              <h2 className="text-[24px]">Consultation & Concept</h2>
-              <div className="text-[16px]">
-                We begin with understanding your theme, colors, culture, and
-                venue. Your vision becomes our inspiration.
+          {services.map((service, index) => (
+            <motion.div
+              key={service.number}
+              className={`flex items-center gap-5 ${index === 0 ? 'mt-10' : '-mt-2'}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.6,
+                delay: index * 0.1
+              }}
+            >
+              <div className="newYork text-[84px] text-[#909C96] flex-[1]">
+                {service.number}
               </div>
-            </div>
-          </div>
-          {/* service 02 */}
-          <div className="flex items-center gap-5 -mt-2">
-            <div className="newYork text-[84px] text-[#909C96] flex-[1]">
-              02
-            </div>
-            <div className="text-[#0D281A] flex-[7]">
-              <h2 className="text-[24px]">Mood-boarding & Styling</h2>
-              <div className="text-[16px]">
-                Our designers create moodboards and floral palettes tailored to
-                your story, tone, and style.
+              <div className="text-[#0D281A] flex-[7]">
+                <h2 className="text-[24px]">{service.title}</h2>
+                <div className="text-[16px]">
+                  {service.description}
+                </div>
               </div>
-            </div>
-          </div>
-          {/* service 03 */}
-          <div className="flex items-center gap-5 -mt-2">
-            <div className="newYork text-[84px] text-[#909C96] flex-[1]">
-              03
-            </div>
-            <div className="text-[#0D281A] flex-[7]">
-              <h2 className="text-[24px]">Custom Floral Planning</h2>
-              <div className="text-[16px]">
-                From settee backs to aisle petals, every floral component is
-                thoughtfully mapped and priced transparently.
-              </div>
-            </div>
-          </div>
-          {/* service 04 */}
-          <div className="flex items-center gap-5 -mt-2">
-            <div className="newYork text-[84px] text-[#909C96] flex-[1]">
-              04
-            </div>
-            <div className="text-[#0D281A] flex-[7]">
-              <h2 className="text-[24px]">Flower Sourcing</h2>
-              <div className="text-[16px]">
-                We handpick blooms from trusted local & global growers to ensure
-                premium freshness and sustainability.
-              </div>
-            </div>
-          </div>
-          {/* service 05 */}
-          <div className="flex items-center gap-5 -mt-2">
-            <div className="newYork text-[84px] text-[#909C96] flex-[1]">
-              05
-            </div>
-            <div className="text-[#0D281A] flex-[7]">
-              <h2 className="text-[24px]">Assembly & Installation</h2>
-              <div className="text-[16px]">
-                Our expert team brings the vision to life on-site—on time, with
-                utmost care and precision.
-              </div>
-            </div>
-          </div>
-          {/* service 06 */}
-          <div className="flex items-center gap-5 -mt-2">
-            <div className="newYork text-[84px] text-[#909C96] flex-[1]">
-              06
-            </div>
-            <div className="text-[#0D281A] flex-[7]">
-              <h2 className="text-[24px]">On-Day Floral Management</h2>
-              <div className="text-[16px]">
-                We stay with you to manage floral changes, bouquet touch-ups,
-                and maintain freshness throughout the event.
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

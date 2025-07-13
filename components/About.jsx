@@ -1,8 +1,51 @@
-const About = ({id}) => {
+"use client"; // Important for Next.js App Router
+
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const About = ({ id }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div id={id} className="h-[60vh] bg-white w-full">
-      <div className="w-[75%] flex mx-auto items-center h-full gap-24">
-        <div className="flex-[1]" style={{ textAlign: "justify" }}>
+      <motion.div
+        ref={ref}
+        className="w-[75%] flex mx-auto items-center h-full gap-24"
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+      >
+        <motion.div
+          className="flex-[1]"
+          style={{ textAlign: "justify" }}
+          variants={itemVariants}
+        >
           At 90 Flora, we believe that every event is a unique story waiting to
           be told. Specialising in wedding decoration and event planning, our
           mission is to bring your vision to life with elegance and simplicity.
@@ -15,8 +58,11 @@ const About = ({id}) => {
           how we can turn your vision into reality. With 90 Flora, your event
           will be a masterpiece of minimalism and elegance, crafted with care
           and love.
-        </div>
-        <div className="flex-[1] flex flex-col items-center text-center">
+        </motion.div>
+        <motion.div
+          className="flex-[1] flex flex-col items-center text-center"
+          variants={itemVariants}
+        >
           <h2 className="text-justify text-[36px] font-bold">CHINTHAKA KASUN</h2>
           <p>
             Founder at 90Flora
@@ -25,8 +71,8 @@ const About = ({id}) => {
             <br />
             University of the Visual and Performing Arts
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
