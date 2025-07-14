@@ -1,7 +1,7 @@
-"use client"; // Enable client-side interactivity
+"use client";
 
-import { useState, useEffect } from "react";
-import { FiDownload } from "react-icons/fi"; // Import download icon
+import { useState, useEffect, useRef } from "react";
+import { FiDownload } from "react-icons/fi";
 import wallpapers from "../../lib/images";
 import Link from "next/link";
 import HeroPortfolio from "@/components/HeroPortfolio";
@@ -10,10 +10,57 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredWallpapers, setFilteredWallpapers] = useState([]);
+  const [visibleWallpapers, setVisibleWallpapers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const containerRef = useRef(null);
+  const batchSize = 8; // Number of images to load at once
 
   useEffect(() => {
-    setFilteredWallpapers([...wallpapers].reverse()); // Fetch images in reverse order
+    setFilteredWallpapers([...wallpapers].reverse());
   }, []);
+
+  useEffect(() => {
+    if (filteredWallpapers.length > 0) {
+      setVisibleWallpapers(filteredWallpapers.slice(0, batchSize));
+      setPage(1);
+    }
+  }, [filteredWallpapers]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading && visibleWallpapers.length < filteredWallpapers.length) {
+          loadMoreWallpapers();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [visibleWallpapers, loading, filteredWallpapers]);
+
+  const loadMoreWallpapers = () => {
+    setLoading(true);
+    setTimeout(() => {
+      const nextPage = page + 1;
+      const nextWallpapers = filteredWallpapers.slice(
+        0,
+        nextPage * batchSize
+      );
+      setVisibleWallpapers(nextWallpapers);
+      setPage(nextPage);
+      setLoading(false);
+    }, 500); // Small delay for better perceived performance
+  };
 
   const handleSearch = () => {
     const searchWords = searchTerm
@@ -75,9 +122,8 @@ export default function Home() {
 
   return (
     <>
-      <HeroPortfolio/>
+      <HeroPortfolio />
       <div className="container p-10 mx-auto">
-
         <div className="flex flex-wrap justify-center gap-5 mb-8">
           {["All", "Welcome Sign", "Entrance Arch", "Stage Decoration", "Settee Back", "Couple"].map(
             (category) => (
@@ -97,13 +143,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {filteredWallpapers.length > 0 ? (
-            filteredWallpapers.map((wallpaper) => (
+          {visibleWallpapers.length > 0 ? (
+            visibleWallpapers.map((wallpaper) => (
               <Link href={`#`} key={wallpaper.id}>
                 <div className="relative cursor-pointer group">
                   <img
                     src={wallpaper.src}
                     alt={wallpaper.title}
+                    loading="lazy" // Native lazy loading as fallback
                     className="w-full h-auto aspect-[9/16] object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-102 group-hover:shadow-2xl"
                   />
                   <button
@@ -122,6 +169,17 @@ export default function Home() {
             <p className="text-gray-600">No wallpapers found.</p>
           )}
         </div>
+
+        {/* Loading indicator and sentinel element */}
+        {loading && (
+          <div className="flex justify-center my-4">
+            <div className="w-8 h-8 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
+          </div>
+        )}
+
+        {!loading && visibleWallpapers.length < filteredWallpapers.length && (
+          <div ref={containerRef} className="h-1"></div>
+        )}
       </div>
     </>
   );

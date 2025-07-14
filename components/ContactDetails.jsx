@@ -1,16 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Banner from "../public/images/BannerArt.webp";
 import Star from "../public/images/star.png";
 
 const ContactDetails = () => {
+  const router = useRouter();
+
   const handleViewMoreClick = (e) => {
     e.preventDefault();
-    const portfolioSection = document.getElementById("portfolio");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: "smooth" });
-    }
+    router.push("/portfolio");
   };
 
   return (
@@ -26,8 +26,9 @@ const ContactDetails = () => {
         >
           <Image
             src={Banner}
-            alt="test"
+            alt="Banner showing floral arrangements"
             className="w-[100%] h-full object-cover rounded-xl"
+            priority
           />
           <motion.button
             onClick={handleViewMoreClick}
@@ -37,9 +38,9 @@ const ContactDetails = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <Image src={Star} alt="start" width={15} height={15} />
+            <Image src={Star} alt="star icon" width={15} height={15} />
             <p>View More</p>
-            <Image src={Star} alt="start" width={15} height={15} />
+            <Image src={Star} alt="star icon" width={15} height={15} />
           </motion.button>
         </motion.div>
 

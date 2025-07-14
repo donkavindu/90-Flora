@@ -2,12 +2,16 @@ import Image from "next/image"
 import portfolioImage1 from "../public/images/port1.webp" 
 import portfolioImage2 from "../public/images/port2.webp" 
 import portfolioImage3 from "../public/images/port3.webp" 
-import portfolioImage4 from "../public/images/port4.webp" 
+import portfolioImage4 from "../public/images/gallary01.webp" 
 import portfolioImage5 from "../public/images/port5.webp" 
 import portfolioImage6 from "../public/images/port6.webp" 
-import portfolioImage7 from "../public/images/port7.webp" 
+import portfolioImage7 from "../public/images/gallary21.webp" 
 import portfolioImage8 from "../public/images/port8.webp" 
-import portfolioImage9 from "../public/images/port9.webp" 
+import portfolioImage9 from "../public/images/gallary10.webp" 
+import portfolioImage10 from "../public/images/gallary18.webp"
+import portfolioImage11 from "../public/images/gallary15.webp"
+import portfolioImage12 from "../public/images/gallary30.webp"
+import portfolioImage13 from "../public/images/gallary19.webp"
 
 const Portfolio = ({id}) => {
   return (
@@ -85,28 +89,28 @@ const Portfolio = ({id}) => {
         {/* Fourth column */}
         <div className="overflow-hidden bg-purple-200 border-white group border-3">
             <Image 
-              src={portfolioImage7} 
+              src={portfolioImage10} 
               alt="portfolioimg1" 
               className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
             />
         </div>
         <div className="overflow-hidden bg-purple-200 border-white group border-3">
             <Image 
-              src={portfolioImage8} 
+              src={portfolioImage11} 
               alt="portfolioimg1" 
               className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
             />
         </div>
         <div className="overflow-hidden bg-purple-200 border-white group border-3">
             <Image 
-              src={portfolioImage9} 
+              src={portfolioImage12} 
               alt="portfolioimg1" 
               className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
             />
         </div>
         <div className="overflow-hidden bg-purple-200 border-white group border-3">
             <Image 
-              src={portfolioImage9} 
+              src={portfolioImage13} 
               alt="portfolioimg1" 
               className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
             />
