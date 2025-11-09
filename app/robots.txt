@@ -1,0 +1,10 @@
+export default function robots() {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      // disallow: '/admin/', // Uncomment if you have admin sections later
+    },
+    sitemap: 'https://www.90flora.com/sitemap.xml',
+  }
+}
