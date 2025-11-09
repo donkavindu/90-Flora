@@ -7,9 +7,9 @@ const Feature = () => {
   const features = ["MODERN", "MINIMAL", "ELEGANT", "LUXURIANT"];
 
   return (
-    <div className="w-full h-[10vh] border-y-2 border-[#0D281A]">
+    <div className="w-full h-auto min-h-[8vh] md:h-[10vh] border-y-2 border-[#0D281A] overflow-hidden flex items-center">
       <motion.div 
-        className="flex w-[75%] h-full mx-auto justify-between items-center text-[24px] tracking-[1.5px] font-light"
+        className="flex w-full h-full justify-between items-center text-[14px] md:text-[24px] tracking-[0.5px] md:tracking-[1.5px] font-light px-4 md:px-8 lg:px-16 xl:px-32"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -23,7 +23,7 @@ const Feature = () => {
         }}
       >
         {features.map((feature, index) => (
-          <div key={`feature-${index}`} className="flex items-center">
+          <div key={`feature-${index}`} className="flex items-center justify-center">
             <motion.p
               variants={{
                 hidden: { opacity: 0, y: -10 },
@@ -33,6 +33,7 @@ const Feature = () => {
                   transition: { duration: 0.5, ease: "easeOut" }
                 }
               }}
+              className="text-center whitespace-nowrap"
             >
               {feature}
             </motion.p>
@@ -52,9 +53,15 @@ const Feature = () => {
                     }
                   }
                 }}
-                className="mx-2"
+                className="flex items-center justify-center mx-1 md:mx-2"
               >
-                <Image src={star} alt="star" width={30}/>
+                <Image 
+                  src={star} 
+                  alt="star" 
+                  width={30}
+                  className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8"
+                  style={{ width: 'auto', height: 'auto' }}
+                />
               </motion.div>
             )}
           </div>
