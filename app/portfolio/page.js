@@ -130,7 +130,7 @@ export default function Home() {
               <button
                 key={category}
                 onClick={() => handleCategoryClick(category)}
-                className={`px-4 py-2 rounded-lg text-sm md:text-base ${
+                className={`px-4 py-2 cursor-pointer rounded-lg text-sm md:text-base ${
                   selectedCategory === category
                     ? "bg-[#e7eae8] text-black"
                     : "bg-[#070c0f] text-white hover:bg-[#e7eae8] hover:text-black"
@@ -146,7 +146,7 @@ export default function Home() {
           {visibleWallpapers.length > 0 ? (
             visibleWallpapers.map((wallpaper) => (
               <Link href={`#`} key={wallpaper.id}>
-                <div className="relative cursor-pointer group">
+                <div className="relative group">
                   <img
                     src={wallpaper.src}
                     alt={wallpaper.title}
@@ -158,7 +158,7 @@ export default function Home() {
                       e.preventDefault();
                       handleDownload(wallpaper.src, wallpaper.title);
                     }}
-                    className="absolute p-2 text-white transition-opacity bg-gray-900 rounded-full opacity-0 bottom-2 right-2 group-hover:opacity-100"
+                    className="absolute p-2 text-white transition-opacity bg-gray-900 rounded-full opacity-0 cursor-pointer bottom-2 right-2 group-hover:opacity-100"
                   >
                     <FiDownload size={20} />
                   </button>
