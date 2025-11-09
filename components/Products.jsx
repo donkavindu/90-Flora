@@ -17,7 +17,7 @@ const Products = () => {
   return (
     <div className="w-full px-4 p-30 sm:px-6 md:px-8 lg:px-30">
       <motion.div 
-        className="w-[75%] w-full md:w-[90%] lg:w-[75%] h-full flex flex-col items-center justify-center mx-auto"
+        className="w-full md:w-[90%] lg:w-[75%] h-full flex flex-col items-center justify-center mx-auto"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
