@@ -53,9 +53,9 @@ const ContactDetails = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Added margin top to push text below the overlapping image */}
+            {/* Added margin top for larger screens to push text below the overlapping image */}
             <motion.h3 
-              className="text-[18px] sm:text-[20px] lg:text-[22px] text-center lg:text-left mt-8 lg:mt-12"
+              className="text-[18px] sm:text-[20px] lg:text-[22px] text-center lg:text-left mt-8 lg:mt-12 xl:mt-16 2xl:mt-20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
